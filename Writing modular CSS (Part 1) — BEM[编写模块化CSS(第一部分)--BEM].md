@@ -50,3 +50,11 @@ I looked for four things when I cobbled together different methodologies to crea
 In my search, I found that a combination of BEM and namespacing fulfills the criteria I look for.
 
 在我的探究中，我找到一个BEM和命名空间符合我期待的标准。
+
+##  Starting with BEM  ##
+##  BEM初接触  ##
+
+BEM is the foundation to my approach. If you’ve never heard of BEM before, it stands for block, element and modifier. It looks incredibly ugly when you first feast your eyes on it.
+
+
+BEM是
