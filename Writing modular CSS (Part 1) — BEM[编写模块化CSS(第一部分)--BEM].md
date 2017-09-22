@@ -57,4 +57,12 @@ In my search, I found that a combination of BEM and namespacing fulfills the cri
 BEM is the foundation to my approach. If you’ve never heard of BEM before, it stands for block, element and modifier. It looks incredibly ugly when you first feast your eyes on it.
 
 
-BEM是
+BEM是我方法的基础。如果你在这之前从未听说过BEM，它的代表有block,element和modifier。当你第一次看它的时候，它看起来非常的难受。
+
+    .block { /* styles */ }
+    .block__element { /* styles */ }
+    .block--modifier { /* styles */ }
+
+I hated BEM to a point where I didn’t even give it a chance when I first got to know about it. I can’t remember what made me try BEM, but I realized how powerful it is to work with it. Let me explain by going through the entirety of what BEM is (with my modifications, of course).
+
+我讨厌BEM,以至于在我第一次知道它的时候没有给它机会。
