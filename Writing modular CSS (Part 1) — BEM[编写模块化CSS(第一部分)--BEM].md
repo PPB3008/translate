@@ -65,4 +65,120 @@ BEM是我方法的基础。如果你在这之前从未听说过BEM，它的代�
 
 I hated BEM to a point where I didn’t even give it a chance when I first got to know about it. I can’t remember what made me try BEM, but I realized how powerful it is to work with it. Let me explain by going through the entirety of what BEM is (with my modifications, of course).
 
-我讨厌BEM,以至于在我第一次知道它的时候没有给它机会。
+我讨厌BEM,以至于在我第一次知道它的时候没有给它机会。我不记得是什么让我尝试了BEM。但是我意识到在工作中使用它是如何强大。让我解释一下BEM的全部内容（当然，我有修改）
+
+
+##  Block  ##
+
+A block is a component. It’s a little abstract, so let’s use examples instead.
+
+block是一个组织。它有点抽象，因此让我们举个例子来替代说明。
+
+Let’s say you’re building a contact form. In this case, the form can be a block. In BEM, blocks are written as class names, like this:
+
+假设你正在建立一个表单。在这种情况下，表单可以是一个块。在BEM，blocks被编写为一个类名，像这样：
+
+    .form { /* styles */ }
+
+The reason BEM uses a .form class instead of the <form> element is because classes allow for infinite reusability, even if the fundamental element should change in style.
+
+原因是BEM使用了.form类代替了<form>元素是因为类名允许被无限复用，即使最基本元素应该改变样式。
+
+
+Buttons are good examples of blocks that can contain different possible styles. If you set the background color of a button element to be red, all buttons are forced to inherit the red background. Following which, you have to fix your code by overwriting your button elements (and probably end up with broken limbs in the process).
+
+
+Buttons被认为是一个blocks的好例子，因为它可以包含不同风格的样式。如果你给一个button元素的背景设置为红色，所有的buttons元素恐怕就被迫继承了红色的背景。接下来。你必须重构你的代码，让你的button元素可以被重写（而且可能在这个过程会有导致代码夭折的可能）
+
+    button {
+    background-color: red;
+    }
+
+    .something button {
+    background-color: blue; /* 😱 */
+    }
+
+If styled a button with a .button class instead, you can choose whether to use the .button class on any button elements. Then, if you need a different background color, all you do is to change to a new class, say .button--secondary, and you’re good to go!
+
+如果一个button的样式是用.button类代替，你可以选择是否使用.button在任何button元素上。因此，如果你需要一个不同的颜色，你所要做的就是更换一个新的类，例如.button-secondary，你可以做得很好。
+
+    .button {
+    background-color: red;
+    }
+
+    .button--secondary {
+    background-color: blue; /* 😄 */
+    }
+
+This brings us to the next part of BEM — modifiers.
+
+这就带我们到BEM的下一部分 —— modifiers
+
+##  Modifiers  ##
+##  模块化  ##
+
+
+Modifiers are flags that change the appearance of a said block. To use a modifier, you add --modifier to the block.
+
+Modifiers是改变一个block的外观的标志。为了使用modifier，你可以添加modifier到block上。
+
+Moving on with the button example from above, the modified button would be named .button--secondary.
+
+继续使用上面的按钮例子，这个被修饰的按钮将被命名为.button-secondary。
+
+In traditional BEM, when you use a modifier, you’re supposed to add the block and the modifier into your HTML so you don’t rewrite your .button styles in the new .button--secondary.
+
+在传统的BEM中，当你使用一个modifier，你讲支持添加一个block和modiier到你的HTML里，因此你不用重写一个.button的样式在你的新.button-secondary类里。
+
+HTML
+
+    <button class="button">Primary button</button>
+	<button class="button button--secondary">Secondary button</button>
+
+CSS
+
+    .button {
+    padding: 0.5em 0.75em;
+    background-color: red;
+    }
+
+    .button--secondary {
+    background-color: green;
+    }
+
+
+Notice how there’s no need to redeclare paddings in .button--secondary because it’s already been declared in button? This is sweet since BEM ensures you write DRY CSS without a ton of effort.
+
+请注意没有必要去重新声明.button-secondary的内边距，因为它已经在button中声明了？这是BEM的可爱确保你不用写太多干巴巴的CSS。
+
+However, I don’t really like declaring the .button class in my HTML since .button--modifier already tells me that it’s a .button with a --secondary flag. Ideally, my HTML should look like this instead:
+
+可是，我不知道我真的不喜欢在我的HTML里宣布.button类在我的.button--modifier已经告诉哦我这个是.button类的副类的标志。在我喜欢的情况下，我的HTML应该是这样代替的：
+
+    <button class="button">Primary button</button>
+    <button class="button--secondary">Secondary button</button>
+
+It’s much cleaner, isn’t it?
+Unfortunately, without the .button class in the HTML, we have to revert back to a non-DRY CSS approach:
+
+是不是整洁得多了？
+不幸的是，没有.button类在HTML中。我们不得不回到没有dryCSS的方法：
+
+    .button {
+    padding: 0.5em 0.75em;
+    background-color: red;
+    }
+
+    .button--secondary {
+    padding: 0.5em 0.75em; /* 😱 */
+    background-color: green;
+    }
+
+Ugh, anything that’s not DRY sucks 😢. But there are two ways to write DRY CSS without the extra HTML bloat!
+
+啊，如此没有dry简直一脸糟糕。但是这里有两种方法写dryCSS不需要额外的膨胀HTML。
+
+
+
+
+
