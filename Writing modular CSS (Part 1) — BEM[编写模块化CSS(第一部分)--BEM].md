@@ -178,6 +178,42 @@ Ugh, anything that’s not DRY sucks 😢. But there are two ways to write DRY C
 
 啊，如此没有dry简直一脸糟糕。但是这里有两种方法写dryCSS不需要额外的膨胀HTML。
 
+Method 1: Use a mixin
+The first way, if you use Sass or any other preprocessor, is to use a mixin to encapsulate all code that needs to be reused. In our button example, we just need to write padding into a mixin. Here, I name the mixin after the block:
+
+方法1：使用mixin
+
+这是第一个方法，如果你使用过sass或者其他任何处理器，是可以使用mixin去封装需要重复使用的代码。在我们的button的例子中，我们只是需要在mixin中写padding。这里，我把mixin为
+
+    @mixin button {
+      padding: 0.5em 0.75em;
+    }
+
+    .button {
+       @include button; // 😄
+       background-color: red;
+    }
+
+    .button--secondary {
+       @include button; // 😄
+       background-color: green;
+    }
+
+
+Hooray! Now we have the best of both worlds!🎉🎉🎉
+
+好哇！现在我们有两全其美的方法。
+
+But but… what if I don’t use Sass?!
+
+但是。。。如果我不使用Sass呢？
+
+Chill! 😄. The second method I’m about to share uses vanilla CSS, so you can use it too!
+
+打了个寒颤。第二个方法我分享使用了vanilla css，你也可以使用它。
+
+
+
 
 
 
