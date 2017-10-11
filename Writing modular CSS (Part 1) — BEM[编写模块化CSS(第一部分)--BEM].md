@@ -212,6 +212,34 @@ Chill! 😄. The second method I’m about to share uses vanilla CSS, so you can
 
 打了个寒颤。第二个方法我分享使用了vanilla css，你也可以使用它。
 
+Method 2: Use CSS attribute selectors
+
+方法2：使用CSS的属性选择器
+
+This second method uses CSS attribute selectors to perform a slightly more complex selection. I’ll show you what it is, then explain why this works:
+
+第二个方法使用CSS的属性选择器去写稍微复杂点的选择。我将向你展示这个，然后解释为什么这样：
+
+    /* 😄 */
+	[class*='button']:not([class*='button__']) {
+    padding: 0.5em 0.75em;
+    }
+
+Now, that’s not a selector that you’ll normally see anywhere, so let me break it down for you.
+
+现在，这不是你通常看到的选择器。因此让我为你分解。
+
+The first part ([class*='button']) tells the parser to look for all classes that contain the text button. (*= searches for anything that matches the exact string). Naturally, this means the CSS targets both .button and .button--modifier. Unfortunately, this also means the selector targets BEM elements as well, which is why the second part comes in.
+
+第一部分（[class*='button']）告诉了解析器查找包含文本按钮的类。（*= 查找任何到匹配的字符串）。自然地，这个意为着CSS目标是.button和.button--mofifier。不幸地，这个也意味选择器的目标也是BEM元素，这也就是为什么第二部分出现的原因。
+
+The second part (:not([class*='button__'])) tells the parser to exclude anything that contains .button__, which excludes BEM elements. (BEM elements has the .block__element syntax).
+
+第二部分 (:not([class*='button__']))告诉了浏览器去排除任何包含.button_，排除了BEM元素。（BEM元素有.block__element语法 ）
+
+(NOTE: I don’t use method 2 anymore since it adds unnecessary specificity to the [class*='button']. If you choose to write modifiers like me, I highly suggest the first approach with mixins).
+
+（注意：我不再使用方法2，自从给[class*='buttob']增加了不必要的特异性。如果你像我一样选择写modifiers，我非常建议用mixins的第一种方法。）
 
 
 
