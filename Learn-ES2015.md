@@ -62,3 +62,8 @@ Arrows are a function shorthand using the => syntax. They are syntactically simi
 
     square(2, 4, 7.5, 8, 11.5, 21); // returns: [4, 16, 56.25, 64, 132.25, 441]
 
+####    Classes    ####
+####    类    ####
+ES2015 classes are a simple sugar over the prototype-based OO pattern. Having a single convenient declarative form makes class patterns easier to use, and encourages interoperability. Classes support prototype-based inheritance, super calls, instance and static methods and constructors.
+
+ES2015类是一个简单基于面对对象原型修饰的类。有个简单方便的说明表格让类的结构更容易被使用，并鼓励互通性操作。类支持基于原型的继承，实现静态方法和构造类。
