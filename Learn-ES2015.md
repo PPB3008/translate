@@ -113,3 +113,10 @@ Object literals are extended to support setting the prototype at construction, s
 The __proto__ property requires native support, and was deprecated in previous ECMAScript versions. Most engines now support the property, but some do not. Also, note that only web browsers are required to implement it, as it's in Annex B. It is available in Node.
 
 __proto__性质需要本地支持。它在之前版本ECMAScript中被弃用。现在大多数引擎都支持这一特性，但是也有一些不支持。注意仅仅只要在web浏览器是必须要实现它。在附录B中，它可用到节点。
+
+
+####    Template Strings    ####
+####    模板字符串    ####
+
+Template strings provide syntactic sugar for constructing strings. This is similar to string interpolation features in Perl, Python and more. Optionally, a tag can be added to allow the string construction to be customized, avoiding injection attacks or constructing higher level data structures from string contents.
+
